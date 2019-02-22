@@ -24,7 +24,24 @@ interview_plot +
 #save
 ggsave("fig_output/interview_plot.png",interview_plot, width=15, height =10, dpi=350)
 
+#new size
+interview_plot +
+  geom_jitter(alpha = 0.5, width = 0.2, height = 0.2, size = 4)
 
+#can put the whole thing into () to print the thing on the screen. 
 
+#adding regression lines
+interview_plot +
+  geom_jitter(aes(color=village), alpha = 0.2, width = 0.2, height = 0.2, size = 4) +
+  geom_smooth(method='lm')
+
+#adding regression lines for each village
+lms<- interview_plot +
+  geom_jitter(aes(color=village), alpha = 0.2, width = 0.2, height = 0.2, size = 4) +
+  geom_smooth(aes(color=village),method='lm')
+#can we get r2 values printed on the graph?? 
+
+#save
+ggsave("fig_output/lms.png", lms)
 
 
