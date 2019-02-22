@@ -21,6 +21,10 @@ interview_plot +
 interview_plot +
   geom_point()
 
+#save
+ggsave("fig_output/interview_plot.png",interview_plot, width=15, height =10, dpi=350)
+
+
 
 
 
